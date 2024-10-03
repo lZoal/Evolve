@@ -27,12 +27,12 @@ export function warhead(){
         global.stats.mad++;
         updateResetStats();
         if (global.race.universe === 'antimatter'){
-            global.prestige.AntiPlasmid.count += gains.plasmid;
-            global.stats.antiplasmid += gains.plasmid;
+            global.prestige.AntiPlasmid.count += gains.plasmid*4;
+            global.stats.antiplasmid += gains.plasmid*4;
         }
         else {
-            global.prestige.Plasmid.count += gains.plasmid;
-            global.stats.plasmid += gains.plasmid;
+            global.prestige.Plasmid.count += gains.plasmid*4;
+            global.stats.plasmid += gains.plasmid*4;
         }
         unlockAchieve(`apocalypse`);
         unlockAchieve(`squished`,true);
@@ -101,15 +101,15 @@ export function bioseed(){
 
     global.stats.bioseed++;
     updateResetStats();
-    global.prestige.Phage.count += gains.phage;
-    global.stats.phage += gains.phage;
+    global.prestige.Phage.count += gains.phage*4;
+    global.stats.phage += gains.phage*4;
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
     unlockAchieve(`seeder`);
     unlockAchieve(`biome_${biome}`);
@@ -238,15 +238,15 @@ export function cataclysm_end(){
         global.stats.cataclysm++;
         updateResetStats();
 
-        global.prestige.Phage.count += gains.phage;
-        global.stats.phage += gains.phage;
+        global.prestige.Phage.count += gains.phage*4;
+        global.stats.phage += gains.phage*4;
         if (global.race.universe === 'antimatter'){
-            global.prestige.AntiPlasmid.count += gains.plasmid;
-            global.stats.antiplasmid += gains.plasmid;
+            global.prestige.AntiPlasmid.count += gains.plasmid*4;
+            global.stats.antiplasmid += gains.plasmid*4;
         }
         else {
-            global.prestige.Plasmid.count += gains.plasmid;
-            global.stats.plasmid += gains.plasmid;
+            global.prestige.Plasmid.count += gains.plasmid*4;
+            global.stats.plasmid += gains.plasmid*4;
         }
 
         unlockAchieve(`squished`,true);
@@ -365,18 +365,18 @@ export function big_bang(){
 
     global.stats.blackhole++;
     updateResetStats();
-    global.prestige.Phage.count += gains.phage;
-    global.stats.phage += gains.phage;
+    global.prestige.Phage.count += gains.phage*4;
+    global.stats.phage += gains.phage*4;
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
-    global.prestige.Dark.count = +(global.prestige.Dark.count + gains.dark).toFixed(3);
-    global.stats.dark = +(global.stats.dark + gains.dark).toFixed(3);
+    global.prestige.Dark.count = +(global.prestige.Dark.count + (4*gains.dark)).toFixed(3);
+    global.stats.dark = +(global.stats.dark + (4*gains.dark)).toFixed(3);
     global.stats.universes++;
 
     let srace = global.race.hasOwnProperty('srace') ? global.race.srace : false;
@@ -461,18 +461,18 @@ export function vacuumCollapse(){
         global.stats.blackhole++;
         updateResetStats();
 
-        global.prestige.Phage.count += gains.phage;
-        global.stats.phage += gains.phage;
+        global.prestige.Phage.count += gains.phage*4;
+        global.stats.phage += gains.phage*4;
         if (global.race.universe === 'antimatter'){
-            global.prestige.AntiPlasmid.count += gains.plasmid;
-            global.stats.antiplasmid += gains.plasmid;
+            global.prestige.AntiPlasmid.count += gains.plasmid*4;
+            global.stats.antiplasmid += gains.plasmid*4;
         }
         else {
-            global.prestige.Plasmid.count += gains.plasmid;
-            global.stats.plasmid += gains.plasmid;
+            global.prestige.Plasmid.count += gains.plasmid*4;
+            global.stats.plasmid += gains.plasmid*4;
         }
-        global.prestige.Dark.count = +(global.prestige.Dark.count + gains.dark).toFixed(3);
-        global.stats.dark = +(global.stats.dark + gains.dark).toFixed(3);
+        global.prestige.Dark.count = +(global.prestige.Dark.count + (4*gains.dark)).toFixed(3);
+        global.stats.dark = +(global.stats.dark + (4*gains.dark)).toFixed(3);
         global.stats.universes++;
 
         let srace = global.race.hasOwnProperty('srace') ? global.race.srace : false;
@@ -532,16 +532,16 @@ export function ascend(){
     global.prestige.Phage.count += gains.phage;
     global.stats.phage += gains.phage;
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
 
-    global.prestige.Harmony.count = parseFloat((global.prestige.Harmony.count + gains.harmony).toFixed(2));
-    global.stats.harmony = parseFloat((global.stats.harmony + gains.harmony).toFixed(2));
+    global.prestige.Harmony.count = parseFloat((global.prestige.Harmony.count + (4*gains.harmony)).toFixed(2));
+    global.stats.harmony = parseFloat((global.stats.harmony + (4*gains.harmony)).toFixed(2));
 
     atmo.forEach(function(a){
         if (planetTraits.hasOwnProperty(a)){
@@ -661,8 +661,8 @@ export function descension(){
     }
 
     let gains = calcPrestige('descend');
-    global.prestige.Artifact.count += gains.artifact;
-    global.stats.artifact += gains.artifact;
+    global.prestige.Artifact.count += 4*gains.artifact;
+    global.stats.artifact += 4*gains.artifact;
 
     let affix = universeAffix();
     if (global.stats.spire.hasOwnProperty(affix)){
@@ -743,19 +743,19 @@ export function terraform(planet){
     global.stats.terraform++;
     updateResetStats();
 
-    global.prestige.Phage.count += gains.phage;
-    global.stats.phage += gains.phage;
+    global.prestige.Phage.count += gains.phage*4;
+    global.stats.phage += gains.phage*4;
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
 
-    global.prestige.Harmony.count = parseFloat((global.prestige.Harmony.count + gains.harmony).toFixed(2));
-    global.stats.harmony = parseFloat((global.stats.harmony + gains.harmony).toFixed(2));
+    global.prestige.Harmony.count = parseFloat((global.prestige.Harmony.count + (gains.harmony*4)).toFixed(2));
+    global.stats.harmony = parseFloat((global.stats.harmony + (gains.harmony*4)).toFixed(2));
 
     atmo.forEach(function(a){
         if (planetTraits.hasOwnProperty(a)){
@@ -844,19 +844,19 @@ export function aiApocalypse(){
 
     global.stats.aiappoc++;
     updateResetStats();
-    global.prestige.Phage.count += gains.phage;
-    global.stats.phage += gains.phage;
+    global.prestige.Phage.count += gains.phage*4;
+    global.stats.phage += gains.phage*4;
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
 
-    global.prestige.AICore.count += gains.cores;
-    global.stats.cores += gains.cores;
+    global.prestige.AICore.count += gains.cores*4;
+    global.stats.cores += gains.cores*4;
 
     let srace = races[god].type !== 'synthetic' ? god : (global.race.hasOwnProperty('srace') ? global.race.srace : god);
     global.stats.synth[srace] = true;
@@ -929,18 +929,18 @@ export function matrix(){
     global.stats.matrix++;
     updateResetStats();
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
-    global.prestige.Phage.count += gains.phage;
-    global.stats.phage += gains.phage;
+    global.prestige.Phage.count += gains.phage*4;
+    global.stats.phage += gains.phage*4;
 
-    global.prestige.AICore.count += gains.cores;
-    global.stats.cores += gains.cores;
+    global.prestige.AICore.count += gains.cores*4;
+    global.stats.cores += gains.cores*4;
 
     let srace = global.race.hasOwnProperty('srace') ? global.race.srace : false;
     let corruption = global.race.hasOwnProperty('corruption') && global.race.corruption > 1 ? global.race.corruption - 1 : 0;
@@ -1013,18 +1013,18 @@ export function retirement(){
     global.stats.retire++;
     updateResetStats();
     if (global.race.universe === 'antimatter'){
-        global.prestige.AntiPlasmid.count += gains.plasmid;
-        global.stats.antiplasmid += gains.plasmid;
+        global.prestige.AntiPlasmid.count += gains.plasmid*4;
+        global.stats.antiplasmid += gains.plasmid*4;
     }
     else {
-        global.prestige.Plasmid.count += gains.plasmid;
-        global.stats.plasmid += gains.plasmid;
+        global.prestige.Plasmid.count += gains.plasmid*4;
+        global.stats.plasmid += gains.plasmid*4;
     }
-    global.prestige.Phage.count += gains.phage;
-    global.stats.phage += gains.phage;
+    global.prestige.Phage.count += gains.phage*4;
+    global.stats.phage += gains.phage*4;
 
-    global.prestige.AICore.count += gains.cores;
-    global.stats.cores += gains.cores;
+    global.prestige.AICore.count += gains.cores*4;
+    global.stats.cores += gains.cores*4;
 
     let srace = global.race.hasOwnProperty('srace') ? global.race.srace : false;
     let corruption = global.race.hasOwnProperty('corruption') && global.race.corruption > 1 ? global.race.corruption - 1 : 0;
