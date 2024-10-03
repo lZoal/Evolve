@@ -752,7 +752,7 @@ function fastLoop(){
     breakdown.p['Global'] = {};
     var global_multiplier = 1;
     let applyPlasmid = false;
-    let pBonus = plasmidBonus('raw');
+    let pBonus = 4*plasmidBonus('raw');
     if (global.prestige.Plasmid.count > 0 && ((global.race.universe !== 'antimatter') || (global.genes['bleed'] && global.race.universe === 'antimatter'))){
         breakdown.p['Global'][loc('resource_Plasmid_name')] = (pBonus[1] * 100) + '%';
         applyPlasmid = true;
@@ -766,7 +766,7 @@ function fastLoop(){
     }
     if (global.race['no_plasmid'] || global.race.universe === 'antimatter'){
         if (((global.race['cataclysm'] || global.race['orbit_decayed']) && global.space['ziggurat'] && global.space.ziggurat.count) || (global.city['temple'] && global.city['temple'].count)){
-            let faith = faithBonus();
+            let faith = 4*faithBonus();
             breakdown.p['Global'][loc('faith')] = (faith * 100) + '%';
             global_multiplier *= (1 + faith);
         }
@@ -813,7 +813,7 @@ function fastLoop(){
         }
     }
     if (global.genes['challenge'] && global.genes.challenge >= 2){
-        let mastery = calc_mastery();
+        let mastery = 4*calc_mastery();
         breakdown.p['Global'][loc('mastery')] = mastery + '%';
         global_multiplier *= 1 + (mastery / 100);
     }
