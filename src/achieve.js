@@ -518,7 +518,7 @@ export function challengeIcon(){
 }
 
 export function alevel(){
-    let a_level = 1;
+    let a_level = 2;
     if (global.race['no_plasmid']){ a_level++; }
     if (global.race['no_trade']){ a_level++; }
     if (global.race['no_craft']){ a_level++; }
