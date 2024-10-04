@@ -4453,9 +4453,9 @@ const techs = {
                 global.settings.arpa.genetics = true;
                 if (!global.arpa['sequence']){
                     global.arpa['sequence'] = {
-                        max: 50000,
+                        max: 500,
                         progress: 0,
-                        time: 50000,
+                        time: 500,
                         on: global.race['cataclysm'] || global.race['orbit_decayed'] ? false : true,
                         boost: false,
                         auto: false,
