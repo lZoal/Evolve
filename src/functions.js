@@ -175,7 +175,7 @@ export function loopTimers(){
     // Long loop (game day) takes 5000ms without any modifiers.
     const baseLongTimer = 20 * webWorkerMainTimer;
     // The constant by which the time is accelerated when atrack.t > 0.
-    const timeAccelerationFactor = 8;
+    const timeAccelerationFactor = 2;
 
     const aTimeMultiplier = atrack.t > 0 ? 0.5 / timeAccelerationFactor : 0.5;
     return {
@@ -195,7 +195,7 @@ export function addATime(currentTimestamp){
     if (exceededATimeThreshold(currentTimestamp) || global.stats.hasOwnProperty('current') && global.settings.at > 0){
         let timeDiff = currentTimestamp - global.stats.current;
         // Removing any accelerated time if the value is larger than the cap.
-        if (global.settings.at > 1152000){
+        if (global.settings.at > 115200){
             global.settings.at = 0;
         }
         // Accelerated time is added only if it is over the threshold.
@@ -207,8 +207,8 @@ export function addATime(currentTimestamp){
             global.settings.at += Math.floor(2 / 3 * timeDiff * timers.timeAccelerationFactor / gameDayDuration);
         }
         // Accelerated time is capped at 8*60*60/2.5 game days.
-        if (global.settings.at > 1152000){
-            global.settings.at = 1152000;
+        if (global.settings.at > 115200){
+            global.settings.at = 115200;
         }
         atrack.t = global.settings.at;
         // Updating the current date so that it won't be counted twice (e.g., when unpausing).
