@@ -987,8 +987,9 @@ function fastLoop(){
             rawZen += Math.round(capyFathom * 500);
         }
         let zen = rawZen / (rawZen + 5000);
+        zen*=2;
         breakdown.p['Global'][loc('trait_calm_bd')] = `+${(zen * 100).toFixed(2)}%`;
-        global_multiplier *= 1 + (2*zen);
+        global_multiplier *= 1 + (zen);
     }
     if (global.city['firestorm'] && global.city.firestorm > 0){
         global.city.firestorm--;
@@ -3015,8 +3016,8 @@ function fastLoop(){
             }
         }
         else {
-            global_multiplier *= 1 + ((global.city.morale.current - 100) / 200);
-            breakdown.p['Global'][loc('morale')] = ((global.city.morale.current - 100) / 2) + '%';
+            global_multiplier *= 1 + ((global.city.morale.current - 100) / 100);
+            breakdown.p['Global'][loc('morale')] = (global.city.morale.current - 100) + '%';
         }
 
         if (global.race['lazy'] && global.city.calendar.temp === 2){
