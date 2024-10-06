@@ -750,7 +750,7 @@ function fastLoop(){
     const date = new Date();
     const astroSign = astrologySign();
     breakdown.p['Global'] = {};
-    var global_multiplier = 2;
+    var global_multiplier = 1;
     let applyPlasmid = false;
     let pBonus = plasmidBonus('raw');
     if (global.prestige.Plasmid.count > 0 && ((global.race.universe !== 'antimatter') || (global.genes['bleed'] && global.race.universe === 'antimatter'))){
@@ -813,7 +813,7 @@ function fastLoop(){
         }
     }
     if (global.genes['challenge'] && global.genes.challenge >= 2){
-        let mastery = 4*calc_mastery();
+        let mastery = calc_mastery();
         breakdown.p['Global'][loc('mastery')] = mastery + '%';
         global_multiplier *= 1 + (mastery / 100);
     }
@@ -861,6 +861,7 @@ function fastLoop(){
         if (global.race['high_pop']){
             bonus = highPopAdjust(bonus);
         }
+        bonus*=2;
         breakdown.p['Global'][loc('trait_intelligent_bd')] = bonus+'%';
         global_multiplier *= 1 + (bonus / 100);
     }
@@ -987,7 +988,7 @@ function fastLoop(){
         }
         let zen = rawZen / (rawZen + 5000);
         breakdown.p['Global'][loc('trait_calm_bd')] = `+${(zen * 100).toFixed(2)}%`;
-        global_multiplier *= 1 + zen;
+        global_multiplier *= 1 + (2*zen);
     }
     if (global.city['firestorm'] && global.city.firestorm > 0){
         global.city.firestorm--;
@@ -3661,7 +3662,7 @@ function fastLoop(){
                     base *= 3;
                 }
                 if(Math.rand(0, base * (3 - (2 ** time_multiplier))) <= lowerBound){
-                    global['resource'][global.race.species].amount++;
+                    global['resource'][global.race.species].amount+=3;
                 }
             }
         }

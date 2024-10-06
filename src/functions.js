@@ -177,7 +177,7 @@ export function loopTimers(){
     // The constant by which the time is accelerated when atrack.t > 0.
     const timeAccelerationFactor = 2;
 
-    const aTimeMultiplier = atrack.t > 0 ? 0.5 / timeAccelerationFactor : 0.5;
+    const aTimeMultiplier = 0.5;
     return {
         webWorkerMainTimer,
         mainTimer: Math.ceil(webWorkerMainTimer * aTimeMultiplier),
@@ -195,7 +195,7 @@ export function addATime(currentTimestamp){
     if (exceededATimeThreshold(currentTimestamp) || global.stats.hasOwnProperty('current') && global.settings.at > 0){
         let timeDiff = currentTimestamp - global.stats.current;
         // Removing any accelerated time if the value is larger than the cap.
-        if (global.settings.at > 115200){
+        if (global.settings.at > 11520){
             global.settings.at = 0;
         }
         // Accelerated time is added only if it is over the threshold.
@@ -207,8 +207,8 @@ export function addATime(currentTimestamp){
             global.settings.at += Math.floor(2 / 3 * timeDiff * timers.timeAccelerationFactor / gameDayDuration);
         }
         // Accelerated time is capped at 8*60*60/2.5 game days.
-        if (global.settings.at > 115200){
-            global.settings.at = 115200;
+        if (global.settings.at > 11520){
+            global.settings.at = 11520;
         }
         atrack.t = global.settings.at;
         // Updating the current date so that it won't be counted twice (e.g., when unpausing).
@@ -780,8 +780,8 @@ export function costMultiplier(structure,offset,base,mutiplier,cat){
     if (nqVal){
         mutiplier -= nqVal;
     }
-    if (mutiplier < 1.005){
-        mutiplier = 1.005;
+    if (mutiplier < 1.002){
+        mutiplier = 1.002;
     }
     var count = structure === 'citizen' ? global['resource'][global.race.species].amount : (global[cat][structure] ? global[cat][structure].count : 0);
     if (offset){
@@ -1320,11 +1320,11 @@ export const calc_mastery = (function(){
     var mastery;
     return function(recalc){
         if (mastery && !recalc){
-            return mastery;
+            return 2*mastery;
         }
         else if (global.genes['challenge'] && global.genes.challenge >= 2){
             mastery = masteryType(global.race.universe);
-            return mastery;
+            return 2*mastery;
         }
         return 0;
     }
@@ -1390,8 +1390,8 @@ export const calcPillar = (function(){
                 }
             });
             bonus = [
-                1 + (active / 100), // Production
-                1 + (active * 2 / 100) // Storage
+                1 + (active * 2 / 100), // Production
+                1 + (active * 4 / 100) // Storage
             ];
         }
         return bonus;

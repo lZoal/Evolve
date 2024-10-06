@@ -1048,7 +1048,7 @@ export const gov_tasks = {
                 slaveCost *= 1 + (extraVal / 100);
             }
             if ( $(this)[0].req() && global.resource.Money.amount >= slaveCost && (global.resource.Money.diff >= slaveCost || global.resource.Money.amount + global.resource.Money.diff >= cashCap) ){
-                let max = global.city.slave_pen.count * 4;
+                let max = global.city.slave_pen.count * 10;
                 if (max > global.resource.Slave.amount){
                     actions.city.slave_market.action();
                 }
