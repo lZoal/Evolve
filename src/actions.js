@@ -1715,7 +1715,7 @@ export const actions = {
                 Nanite(offset){ return global.race['deconstructor'] ? costMultiplier('slave_pen', offset, 4, 1.36) : 0; },
             },
             effect(){
-                let max = global.city['slave_pen'] ? global.city.slave_pen.count * 4 : 4;
+                let max = global.city['slave_pen'] ? global.city.slave_pen.count * 10 : 4;
                 let slaves = global.city['slave_pen'] ? global.resource.Slave.amount : 0;
                 return `<div>${loc('city_slave_pen_effect',[4])}</div><div>${loc('city_slave_pen_effect2',[slaves,max])}</div>`;
             },

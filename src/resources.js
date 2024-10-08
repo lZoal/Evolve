@@ -3168,7 +3168,6 @@ export const plasmidBonus = (function (){
                 if (global.tech['outpost_boost'] && global.race['truepath'] && p_on['alien_outpost']){
                     anti *= 2;
                 }
-                anti /= 3;
             }
 
             if (global.race['nerfed']){

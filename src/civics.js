@@ -1784,7 +1784,7 @@ function war_campaign(gov){
         }
 
         if (global.race['slaver'] && global.city['slave_pen']){
-            let max = global.city.slave_pen.count * 4;
+            let max = global.city.slave_pen.count * 10;
             if (max > global.resource.Slave.amount){
                 let slaves = Math.floor(seededRandom(0,global.civic.garrison.tactic + 2,true));
                 if (slaves + global.resource.Slave.amount > max){

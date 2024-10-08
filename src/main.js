@@ -3662,8 +3662,8 @@ function fastLoop(){
                     lowerBound = Math.round(lowerBound / 5);
                     base *= 3;
                 }
-                if(Math.rand(0, base * (3 - (2 ** time_multiplier))) <= lowerBound){
-                    global['resource'][global.race.species].amount+=3;
+                if(Math.rand(0, base * (3 - (2 ** time_multiplier))) <= lowerBound*4){
+                    global['resource'][global.race.species].amount++;
                 }
             }
         }
@@ -8028,8 +8028,8 @@ function midLoop(){
             }
         }
         if (global.race['slaver'] && global.tech['slaves'] && global.city['slave_pen']) {
-            caps['Slave'] = global.city.slave_pen.count * 4;
-            bd_Slave[loc('city_slave_pen')] = global.city.slave_pen.count * 4 + 'v';
+            caps['Slave'] = global.city.slave_pen.count * 10;
+            bd_Slave[loc('city_slave_pen')] = global.city.slave_pen.count * 10 + 'v';
 
             if (caps['Slave'] < global.resource.Slave.amount){
                 global.resource.Slave.amount = caps['Slave'];
