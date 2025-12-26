@@ -4651,9 +4651,9 @@ const techs = {
                 global.settings.arpa.genetics = true;
                 if (!global.arpa['sequence']){
                     global.arpa['sequence'] = {
-                        max: 50000,
+                        max: 500,
                         progress: 0,
-                        time: 50000,
+                        time: 500,
                         on: global.race['cataclysm'] || global.race['orbit_decayed'] ? false : true,
                         boost: false,
                         auto: false,
@@ -8464,8 +8464,6 @@ const techs = {
         era: 'early_space',
         reqs: { theology: 4 },
         grant: ['theology',5],
-        wiki: global.genes['transcendence'] && global.genes.transcendence >= 2 ? false : true,
-        condition(){ return !global.genes['transcendence'] || global.genes.transcendence < 2 ? true : false; },
         no_queue(){ return global.r_queue.queue.some(item => item.id === 'tech-deify') ? true : false; },
         cost: {
             Knowledge(){ return 195000; }
@@ -8533,8 +8531,6 @@ const techs = {
         era: 'early_space',
         reqs: { theology: 4 },
         grant: ['theology',5],
-        wiki: global.genes['transcendence'] && global.genes.transcendence >= 2 ? false : true,
-        condition(){ return !global.genes['transcendence'] || global.genes.transcendence < 2 ? true : false; },
         no_queue(){ return global.r_queue.queue.some(item => item.id === 'tech-study') ? true : false; },
         cost: {
             Knowledge(){ return 195000; }

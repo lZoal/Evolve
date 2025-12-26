@@ -1023,6 +1023,7 @@ function fastLoop(){
         if (global.race['high_pop']){
             bonus = highPopAdjust(bonus);
         }
+        bonus*=2;
         breakdown.p['Global'][loc('trait_intelligent_bd')] = bonus+'%';
         global_multiplier *= 1 + (bonus / 100);
     }
@@ -1148,8 +1149,9 @@ function fastLoop(){
             rawZen += Math.round(capyFathom * 500);
         }
         let zen = rawZen / (rawZen + 5000);
+        zen*=2;
         breakdown.p['Global'][loc('trait_calm_bd')] = `+${(zen * 100).toFixed(2)}%`;
-        global_multiplier *= 1 + zen;
+        global_multiplier *= 1 + (zen);
     }
     if (global.city['firestorm'] && global.city.firestorm > 0){
         global.city.firestorm--;
@@ -8775,8 +8777,8 @@ function midLoop(){
             }
         }
         if (global.race['slaver'] && global.tech['slaves'] && global.city['slave_pen']) {
-            caps['Slave'] = global.city.slave_pen.count * 4;
-            breakdown.c.Slave[loc('city_slave_housing',[global.resource.Slave.name])] = global.city.slave_pen.count * 4 + 'v';
+            caps['Slave'] = global.city.slave_pen.count * 10;
+            breakdown.c.Slave[loc('city_slave_housing',[global.resource.Slave.name])] = global.city.slave_pen.count * 10 + 'v';
 
             if (caps['Slave'] < global.resource.Slave.amount){
                 global.resource.Slave.amount = caps['Slave'];

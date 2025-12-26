@@ -161,7 +161,7 @@ export function loopTimers(){
     // The constant by which the time is accelerated when atrack.t > 0.
     const timeAccelerationFactor = 2;
 
-    const aTimeMultiplier = atrack.t > 0 ? 1 / timeAccelerationFactor : 1;
+    const aTimeMultiplier = 0.5;
     return {
         webWorkerMainTimer,
         mainTimer: Math.ceil(webWorkerMainTimer * aTimeMultiplier),
@@ -1362,11 +1362,11 @@ export const calc_mastery = (function(){
     var mastery;
     return function(recalc){
         if (mastery && !recalc){
-            return mastery;
+            return 2*mastery;
         }
         else if (global.genes['challenge'] && global.genes.challenge >= 2){
             mastery = masteryType(global.race.universe);
-            return mastery;
+            return 2*mastery;
         }
         return 0;
     }
@@ -1432,8 +1432,8 @@ export const calcPillar = (function(){
                 }
             });
             bonus = [
-                1 + (active / 100), // Production
-                1 + (active * 2 / 100) // Storage
+                1 + (active * 2 / 100), // Production
+                1 + (active * 4 / 100) // Storage
             ];
         }
         return bonus;
