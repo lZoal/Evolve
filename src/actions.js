@@ -1676,7 +1676,7 @@ export const actions = {
                 if (payCosts($(this)[0])){
                     incrementStruct('slave_pen','city');
                     global.resource.Slave.display = true;
-                    global.resource.Slave.max = global.city.slave_pen.count * 4;
+                    global.resource.Slave.max = global.city.slave_pen.count * 10;
                     return true;
                 }
                 return false;
