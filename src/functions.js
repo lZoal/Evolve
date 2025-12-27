@@ -1391,8 +1391,8 @@ export function masteryType(universe,detailed,unmodified){
 
         if (! unmodified) {
             if (global.race['weak_mastery'] && universe === 'antimatter'){
-                m_rate /= 10;
-                u_rate /= 10;
+                m_rate /= 1;
+                u_rate /= 1;
             }
             if (global.race['nerfed']){
                 m_rate /= universe === 'antimatter' ? 5 : 2;
