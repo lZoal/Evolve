@@ -3289,7 +3289,7 @@ function fastLoop(){
             }
         }
         else {
-            global_multiplier *= 1 + ((global.city.morale.current - 100) / 200);
+            global_multiplier *= 1 + ((global.city.morale.current - 100) / 100);
             breakdown.p['Global'][loc('morale')] = +((global.city.morale.current - 100) / 2).toFixed(2) + '%';
         }
 
