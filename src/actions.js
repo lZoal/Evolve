@@ -1359,9 +1359,9 @@ export const actions = {
             cost: {
                 Money(){ return 25000; },
             },
-            queue_complete(){ return global.city['slave_pen'] ? global.city.slave_pen.count * 4 - global.resource.Slave.amount : 0; },
+            queue_complete(){ return global.city['slave_pen'] ? global.city.slave_pen.count * 10 - global.resource.Slave.amount : 0; },
             action(args){
-                if (global.city['slave_pen'] && global.city.slave_pen.count * 4 > global.resource.Slave.amount){
+                if (global.city['slave_pen'] && global.city.slave_pen.count * 10 > global.resource.Slave.amount){
                     if (payCosts($(this)[0])){
                         global.resource.Slave.amount++;
                         return true;
