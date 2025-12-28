@@ -36,7 +36,7 @@ else:
             except:
                 print("the last-strings.json was a malformed json file.")
                 last_strings = None
-            last_file.close();
+            last_file.close()
         else:
             last_strings = None
         
