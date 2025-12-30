@@ -1595,10 +1595,10 @@ function fastLoop(){
                         if (global.race['truepath']){
                             rate *= 1 - (global.civic.foreign.gov3.hstl / 101);
                         }
-                        modRes(res,routes * time_multiplier * rate);
-                        modRes('Money', -(price * time_multiplier));
-                        breakdown.p.consume.Money[loc('trade')] -= price;
-                        breakdown.p.consume[res][loc('trade')] = routes * rate;
+                        modRes(res,routes * time_multiplier * rate * global_multiplier);
+                        modRes('Money', -(price * time_multiplier * global_multiplier));
+                        breakdown.p.consume.Money[loc('trade')] -= price * global_multiplier;
+                        breakdown.p.consume[res][loc('trade')] = routes * rate * global_multiplier;
                     }
                     steelCheck();
                 }
@@ -3380,7 +3380,7 @@ function fastLoop(){
                     let bireme = 1 - (bireme_rating ** (gal_on['bireme'] || 0));
 
                     modRes(res, -(time_multiplier * volume));
-                    supply += Number(shipped * supplyValue[res].in * time_multiplier * bireme * global_multiplier);
+                    supply += Number(shipped * supplyValue[res].in * time_multiplier * bireme);
                 }
             });
             if (global.tech['hell_lake'] && global.tech.hell_lake >= 7 && global.tech['railway']){
