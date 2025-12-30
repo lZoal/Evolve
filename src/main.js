@@ -1616,10 +1616,10 @@ function fastLoop(){
                     routes = Math.max(routes, -affordable_routes);
                     if (routes < 0){
                         let price = tradeSellPrice(res) * routes;
-                        modRes(res,routes * time_multiplier * rate);
-                        modRes('Money', -(price * time_multiplier));
-                        breakdown.p.consume.Money[loc('trade')] -= price;
-                        breakdown.p.consume[res][loc('trade')] = routes * rate;
+                        modRes(res,routes * time_multiplier * rate * global_multiplier);
+                        modRes('Money', -(price * time_multiplier * global_multiplier));
+                        breakdown.p.consume.Money[loc('trade')] -= price * global_multiplier;
+                        breakdown.p.consume[res][loc('trade')] = routes * rate * global_multiplier;
                     }
                     steelCheck();
                 }
