@@ -891,7 +891,7 @@ function fastLoop(){
     const date = new Date();
     const astroSign = astrologySign();
     breakdown.p['Global'] = {};
-    var global_multiplier = 2;
+    var global_multiplier = 1;
     let applyPlasmid = false;
     let pBonus = plasmidBonus('raw');
     if (global.prestige.Plasmid.count > 0 && ((global.race.universe !== 'antimatter') || (global.genes['bleed'] && global.race.universe === 'antimatter'))){
@@ -3380,7 +3380,7 @@ function fastLoop(){
                     let bireme = 1 - (bireme_rating ** (gal_on['bireme'] || 0));
 
                     modRes(res, -(time_multiplier * volume));
-                    supply += Number(shipped * supplyValue[res].in * time_multiplier * bireme);
+                    supply += Number(shipped * supplyValue[res].in * time_multiplier * bireme * global_multiplier);
                 }
             });
             if (global.tech['hell_lake'] && global.tech.hell_lake >= 7 && global.tech['railway']){
