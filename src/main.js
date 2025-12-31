@@ -2803,7 +2803,7 @@ function fastLoop(){
         if (global.race['replicator'] && p_on['replicator']){
             let res = global.race.replicator.res;
             if (!['Asphodel_Powder','Elysanite'].includes(res)){
-                let vol = replicator(res,p_on['replicator']);
+                let vol = replicator(res,p_on['replicator'])*global_multiplier;
                 breakdown.p.consume[res][loc('tau_replicator_db')] = vol;
                 modRes(res, time_multiplier * vol);
             }
